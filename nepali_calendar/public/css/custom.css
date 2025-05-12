@@ -1,0 +1,15 @@
+.swap-icon {
+	position: absolute;
+	top: 50%;
+	right: 30px; /* Adjust this based on padding of your field */
+	transform: translateY(-50%);
+	font-size: 14px;
+	color: #666;
+	cursor: pointer;
+	z-index: 2;
+	pointer-events: auto;
+	background: transparent;
+}
+input[data-fieldname="nepali_date"] {
+	padding-right: 60px !important;
+}
