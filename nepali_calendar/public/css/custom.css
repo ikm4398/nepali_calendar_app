@@ -1,15 +1,67 @@
+/* Ensure the control wrapper is positioned relatively */
+.control-input-wrapper {
+	position: relative;
+}
+
+/* Position the swap icon inside the input field on the right */
 .swap-icon {
 	position: absolute;
-	top: 50%;
-	right: 30px; /* Adjust this based on padding of your field */
+	right: 4px;
+	top: 0;
+	margin-top: 15px;
 	transform: translateY(-50%);
 	font-size: 14px;
 	color: #666;
 	cursor: pointer;
-	z-index: 2;
-	pointer-events: auto;
-	background: transparent;
+	z-index: 3;
 }
-input[data-fieldname="nepali_date"] {
-	padding-right: 60px !important;
+
+/* Position the converted date display just below the input field */
+.nepali-date-display {
+	margin-top: 5px;
+	margin-left: 10px;
+	font-size: 14px;
+	color: #555;
+}
+
+/* Add padding to input fields to accommodate the swap icon */
+.control-input-wrapper input[data-fieldtype="Date"],
+.control-input-wrapper input[data-fieldtype="Datetime"] {
+	padding-right: 30px !important;
+}
+
+/* Optional: Incorporate additional CSS for grid views if needed */
+.grid-row .data-row div[data-fieldtype="Date"] .form-group.frappe-control {
+	display: inline-flex;
+}
+
+.nd_switch_btn {
+	position: absolute;
+	right: 4px;
+	top: 0px;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.nd_switch_btn::before {
+	font: normal normal normal 14px/1 FontAwesome;
+	content: "\f079";
+	display: inline-block;
+	padding-right: 3px;
+	vertical-align: middle;
+	font-weight: 900;
+}
+
+.grid-body .data-row:not(.editable-row) .grid-static-col[data-fieldtype="Date"] {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.nepali_date-conversion {
+	font-size: 14px;
+}
+
+.datatable .dt-row .dt-cell .dt-cell__content > br {
+	content: "\00a0";
+	padding-right: 5px;
 }

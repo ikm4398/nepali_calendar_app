@@ -1,24 +1,23 @@
-// nepali_calendar/public/js/calendar_toggle.js
-
 window.CalendarToggle = {
 	setupNepaliDateField(frm, $wrapper, isDatetime) {
 		const { formatDatetime, updateDisplay } = window.CalendarUtils;
 
-		const $originalInput = $wrapper.find("input");
+		const $controlWrapper = $wrapper.find(".control-input-wrapper");
+		if (!$controlWrapper.length) return; // Exit if no control wrapper found
+
+		const $originalInput = $controlWrapper.find("input");
 		if (!$originalInput.length) return; // Exit if no input found
 
 		const originalClass = $originalInput.attr("class");
 
-		$wrapper.css("position", "relative");
-		if ($wrapper.find(".swap-icon").length > 0) return; // Prevent duplicate icons
+		$controlWrapper.css("position", "relative");
+		if ($controlWrapper.find(".swap-icon").length > 0) return; // Prevent duplicate icons
 
-		const $icon = $(`<i class="fa fa-exchange swap-icon" title="Swap Calendar" 
-            style="position:absolute; right:10px; top:40px; cursor:pointer; z-index:10;"></i>`);
-		const $altDateDisplay = $(`<div class="nepali-date-display"
-            style="margin-left:5px; font-size: 100%; color: #555;"></div>`);
+		const $icon = $('<i class="fa fa-exchange swap-icon" title="Swap Calendar"></i>');
+		const $altDateDisplay = $('<div class="nepali-date-display"></div>');
 		const $bsInput = $(`<input type="text" class="${originalClass}" style="display:none;" />`);
 
-		$wrapper.append($icon, $altDateDisplay);
+		$controlWrapper.append($icon, $altDateDisplay);
 		$bsInput.insertAfter($originalInput);
 
 		let isBsMode = false;

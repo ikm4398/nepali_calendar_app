@@ -14,7 +14,7 @@ window.CalendarUtils = {
 	updateDisplay($displayEl, adDate, bsDate, isBsMode) {
 		try {
 			const display = isBsMode ? adDate : bsDate;
-			$displayEl.text(display || "Invalid Date");
+			$displayEl.text(display);
 		} catch (e) {
 			console.error("Error updating display:", e);
 			$displayEl.text("Display Error");
