@@ -19,6 +19,7 @@
 /* Position the converted date display just below the input field */
 .nepali-date-display {
 	margin-top: 5px;
+	text-align: left;
 	margin-left: 10px;
 	font-size: 14px;
 	color: #555;

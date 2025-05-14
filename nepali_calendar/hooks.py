@@ -13,7 +13,7 @@ app_include_js = [
     "/assets/nepali_calendar/js/nepali.datepicker.v4.0.8.min.js",
     "/assets/nepali_calendar/js/calendar_utils.js",
     "/assets/nepali_calendar/js/calendar_toggle.js",
-    "/assets/nepali_calendar/js/custom_date_control.js",  # New JS file for custom control
+    "/assets/nepali_calendar/js/custom_date_control.js",
 ]
 app_include_css = [
     "/assets/nepali_calendar/css/custom.css",
