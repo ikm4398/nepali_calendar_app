@@ -14,6 +14,7 @@ app_include_js = [
     "/assets/nepali_calendar/js/calendar_utils.js",
     "/assets/nepali_calendar/js/calendar_toggle.js",
     "/assets/nepali_calendar/js/custom_date_control.js",
+    "/assets/nepali_calendar/js/list_view.js",
 ]
 app_include_css = [
     "/assets/nepali_calendar/css/custom.css",
@@ -24,4 +25,9 @@ app_include_css = [
 control_overrides = {
     "Date": "nepali_calendar.custom_date_control.CustomDate",
     "Datetime": "nepali_calendar.custom_date_control.CustomDatetime",
+}
+
+# nepali_calendar/hooks.py
+doctype_list_js = {
+  "Attendance": "public/js/doctype/Attendance/attendance_list.js"
 }

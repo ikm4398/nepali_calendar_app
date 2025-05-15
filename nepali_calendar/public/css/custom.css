@@ -66,3 +66,13 @@
 	content: "\00a0";
 	padding-right: 5px;
 }
+/* nepali_calendar/public/css/custom.css */
+.ad-date {
+	display: block; /* Stack vertically */
+}
+
+.bs-date {
+	display: block; /* Stack vertically */
+	font-size: 0.9em; /* Slightly smaller for distinction */
+	color: #666; /* Gray for contrast, adjust as needed */
+}
