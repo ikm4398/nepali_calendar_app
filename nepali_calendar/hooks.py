@@ -15,6 +15,8 @@ app_include_js = [
     "/assets/nepali_calendar/js/calendar_toggle.js",
     "/assets/nepali_calendar/js/custom_date_control.js",
     "/assets/nepali_calendar/js/list_view.js",
+    "/assets/nepali_calendar/js/report_view.js",
+    "/assets/nepali_calendar/js/report_filter_nepali_date.js",
 ]
 app_include_css = [
     "/assets/nepali_calendar/css/custom.css",

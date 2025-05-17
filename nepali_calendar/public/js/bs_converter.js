@@ -3,4 +3,3 @@ import { adToBs, bsToAd, calculateAge } from "@sbmdkl/nepali-date-converter";
 
 window.adToBs = adToBs;
 window.bsToAd = bsToAd;
-window.calculateAge = calculateAge;

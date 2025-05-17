@@ -24,48 +24,6 @@
 	font-size: 14px;
 	color: #555;
 }
-
-/* Add padding to input fields to accommodate the swap icon */
-.control-input-wrapper input[data-fieldtype="Date"],
-.control-input-wrapper input[data-fieldtype="Datetime"] {
-	padding-right: 30px !important;
-}
-
-/* Optional: Incorporate additional CSS for grid views if needed */
-.grid-row .data-row div[data-fieldtype="Date"] .form-group.frappe-control {
-	display: inline-flex;
-}
-
-.nd_switch_btn {
-	position: absolute;
-	right: 4px;
-	top: 0px;
-	cursor: pointer;
-	z-index: 3;
-}
-
-.nd_switch_btn::before {
-	font: normal normal normal 14px/1 FontAwesome;
-	content: "\f079";
-	display: inline-block;
-	padding-right: 3px;
-	vertical-align: middle;
-	font-weight: 900;
-}
-
-.grid-body .data-row:not(.editable-row) .grid-static-col[data-fieldtype="Date"] {
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
-}
-
-.nepali_date-conversion {
-	font-size: 14px;
-}
-
-.datatable .dt-row .dt-cell .dt-cell__content > br {
-	content: "\00a0";
-	padding-right: 5px;
-}
 /* nepali_calendar/public/css/custom.css */
 .ad-date {
 	display: block; /* Stack vertically */
@@ -75,4 +33,33 @@
 	display: block; /* Stack vertically */
 	font-size: 0.9em; /* Slightly smaller for distinction */
 	color: #666; /* Gray for contrast, adjust as needed */
+}
+
+/* nepali_calendar/public/css/custom.css */
+
+/* Style DataTable cells containing dates */
+.datatable .dt-row .dt-cell .dt-cell__content {
+	display: flex;
+	flex-direction: column;
+	min-height: 50px; /* Ensure enough height for two lines */
+	padding: 4px 0; /* Adjust padding for better spacing */
+}
+
+/* Style the BS date span */
+.nepali_date-conversion {
+	font-size: 12px; /* Slightly smaller for distinction */
+	color: #4d4c4c; /* Lighter color for secondary info */
+	margin-top: 2px;
+	margin-bottom: 5px; /* Space between AD and BS dates */
+}
+
+/* Ensure line break has proper spacing */
+.datatable .dt-row .dt-cell .dt-cell__content br {
+	margin-bottom: 2px; /* Vertical space after the break */
+}
+
+/* Optional: Adjust cell padding for DataTable rows */
+.grid-body .data-row .grid-static-col {
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
 }
