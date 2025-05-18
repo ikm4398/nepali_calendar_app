@@ -1,17 +1,33 @@
+// nepali_calendar/public/js/calendar_toggle.js
 window.CalendarToggle = {
 	setupNepaliDateField(frm, $wrapper, isDatetime) {
 		const { formatDatetime, updateDisplay } = window.CalendarUtils;
 
-		const $controlWrapper = $wrapper.find(".control-input-wrapper");
-		if (!$controlWrapper.length) return; // Exit if no control wrapper found
+		// Find the control wrapper, fallback to frappe-control if control-input-wrapper is not present
+		let $controlWrapper = $wrapper.find(".control-input-wrapper");
+		if (!$controlWrapper.length) {
+			$controlWrapper = $wrapper.hasClass("frappe-control")
+				? $wrapper
+				: $wrapper.find(".frappe-control");
+		}
+		if (!$controlWrapper.length) {
+			console.warn("Control wrapper not found in wrapper:", $wrapper);
+			return;
+		}
 
 		const $originalInput = $controlWrapper.find("input");
-		if (!$originalInput.length) return; // Exit if no input found
+		if (!$originalInput.length) {
+			console.warn("Input not found in control wrapper:", $controlWrapper);
+			return;
+		}
 
 		const originalClass = $originalInput.attr("class");
 
 		$controlWrapper.css("position", "relative");
-		if ($controlWrapper.find(".swap-icon").length > 0) return; // Prevent duplicate icons
+		if ($controlWrapper.find(".swap-icon").length > 0) {
+			console.log("Swap icon already present, skipping setup for:", $originalInput);
+			return;
+		}
 
 		const $icon = $('<i class="fa fa-exchange swap-icon" title="Swap Calendar"></i>');
 		const $altDateDisplay = $('<div class="nepali-date-display"></div>');
@@ -30,7 +46,7 @@ window.CalendarToggle = {
 				let bsVal = window.adToBs(date);
 				if (isDatetime && time) bsVal += " " + time;
 				$bsInput.val(bsVal);
-				frm.set_value($originalInput.attr("data-fieldname"), adVal);
+				if (frm) frm.set_value($originalInput.attr("data-fieldname"), adVal);
 				updateDisplay($altDateDisplay, adVal, bsVal, isBsMode);
 			} catch (e) {
 				console.error("AD to BS Conversion Error:", e);
@@ -46,7 +62,7 @@ window.CalendarToggle = {
 				let adVal = window.bsToAd(date);
 				if (isDatetime && time) adVal += " " + time;
 				$originalInput.val(adVal).trigger("change");
-				frm.set_value($originalInput.attr("data-fieldname"), adVal);
+				if (frm) frm.set_value($originalInput.attr("data-fieldname"), adVal);
 				updateDisplay($altDateDisplay, adVal, bsVal, isBsMode);
 			} catch (e) {
 				console.error("BS to AD Conversion Error:", e);
@@ -57,12 +73,17 @@ window.CalendarToggle = {
 		$originalInput.on("change", convertAdToBs);
 		$bsInput.on("change", convertBsToAd);
 
-		$bsInput.nepaliDatePicker({
-			ndpYear: true,
-			ndpMonth: true,
-			ndpYearCount: 50,
-			onChange: () => $bsInput.trigger("change"),
-		});
+		try {
+			$bsInput.nepaliDatePicker({
+				ndpYear: true,
+				ndpMonth: true,
+				ndpYearCount: 50,
+				onChange: () => $bsInput.trigger("change"),
+			});
+			console.log("Nepali Datepicker initialized for:", $bsInput);
+		} catch (e) {
+			console.error("Error initializing Nepali Datepicker:", e);
+		}
 
 		$icon.on("click", () => {
 			$originalInput.toggle();
