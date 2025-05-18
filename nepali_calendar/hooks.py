@@ -27,8 +27,3 @@ control_overrides = {
     "Date": "nepali_calendar.custom_date_control.CustomDate",
     "Datetime": "nepali_calendar.custom_date_control.CustomDatetime",
 }
-
-# nepali_calendar/hooks.py
-doctype_list_js = {
-  "Attendance": "public/js/doctype/Attendance/attendance_list.js"
-}
