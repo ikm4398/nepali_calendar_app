@@ -4,5 +4,7 @@
   },
   "dependencies": {
     "@sbmdkl/nepali-date-converter": "^2.0.4"
-  }
+  },
+   "scripts":{
+"build":"vite build"}
 }
