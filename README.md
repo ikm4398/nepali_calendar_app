@@ -20,4 +20,3 @@ Go to **Home > Settings > System Settings** and set as:
 - **Date Format** : `yyyy-mm-dd`
 - **Time Format** : `HH:mm:ss`
 =======
-# erp_nepali_calendar
