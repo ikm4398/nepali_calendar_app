@@ -36,7 +36,7 @@ window.CalendarToggle = {
 		$controlWrapper.append($icon, $altDateDisplay);
 		$bsInput.insertAfter($originalInput);
 
-		let isBsMode = false;
+		let isBsMode = true; // Initialize in Nepali (BS) mode
 
 		function convertAdToBs() {
 			const adVal = $originalInput.val();
@@ -92,6 +92,15 @@ window.CalendarToggle = {
 			updateDisplay($altDateDisplay, $originalInput.val(), $bsInput.val(), isBsMode);
 		});
 
-		if ($originalInput.val()) convertAdToBs();
+		// Initially show BS input and hide AD input
+		$originalInput.hide();
+		$bsInput.show();
+
+		// Perform initial conversion if a value exists
+		if ($originalInput.val()) {
+			convertAdToBs();
+		} else if ($bsInput.val()) {
+			convertBsToAd();
+		}
 	},
 };
